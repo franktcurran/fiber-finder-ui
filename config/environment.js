@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'fiber-finder',
     environment: environment,
-    rootURL: '/',
+    baseURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -12,7 +12,9 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-
+    sassOptions: {
+      includePaths: ['bower_components/material-design-lite/src']
+    },
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -29,6 +31,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
+    ENV.baseURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
@@ -41,6 +44,16 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  ENV.contentSecurityPolicy = {
+    'default-src': "'none'",
+    'script-src': "'self' 'unsafe-inline'",
+    'style-src': "'self' 'unsafe-inline' https://fonts.googleapis.com",
+    'font-src': "'self' fonts.gstatic.com",
+    'connect-src': "'self'",
+    'img-src': "'self' data:",
+    'media-src': "'self'"
+  };
 
   return ENV;
 };

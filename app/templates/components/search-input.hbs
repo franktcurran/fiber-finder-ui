@@ -1,0 +1,8 @@
+{{#power-select search=(perform searchRepo)
+                placeholder="Type an Address"
+                selected=selected
+                onchange=(action 'select')
+                as |suggestion|}}
+  {{suggestion.text}}
+{{/power-select}}
+{{yield}}

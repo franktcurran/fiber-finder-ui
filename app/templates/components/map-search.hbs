@@ -1,0 +1,12 @@
+{{search-input addressSelected=(action addressSelected) updateCenter=(action 'updateCenter')}}
+
+{{#leaflet-map lat=lat lng=lng zoom=zoom onLoad=(action "mapLoaded")}}
+  {{tile-layer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"}}
+  {{#if markerPosition}}
+    {{marker-layer lat=markerPosition.lat lng=markerPosition.lng}}
+  {{/if}}
+  {{#if geoJSON}}
+    {{geojson-layer geoJSON=geoJSON}}
+  {{/if}}
+{{/leaflet-map}}
+{{geoJSON}}
