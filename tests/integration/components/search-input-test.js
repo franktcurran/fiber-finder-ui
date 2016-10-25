@@ -11,14 +11,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{search-input}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#search-input}}
-      template block text
-    {{/search-input}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), 'Type an Address');
 });
