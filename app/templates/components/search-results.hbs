@@ -1,59 +1,7 @@
-
-{{!-- {{#if openNav}} --}}
-{{!-- {{openNav}} --}}
-{{#paper-sidenav
-        class="md-whiteframe-z4"
-        open=openNav
-        name='results'
-        position='right'
-        lockedOpen='true'
-        onToggle=(action (mut openNav))
-      }}
-  {{#paper-toolbar as |toolbar|}}
-    {{#paper-toolbar-tools}}Results{{/paper-toolbar-tools}}
-  {{/paper-toolbar}}
-  {{#paper-content padding=true}}
-    {{#if isLoading}}
-      Searching for Providers...
-      {{paper-progress-circular}}
-    {{else}}
-      <span class="light">
-        {{{message}}}
-      </span>
-
-      {{#if providers}}
-        {{#paper-content class="md-whiteframe-z4"}}
-          {{#paper-list}}
-            {{#each providers as |provider|}}
-              {{#paper-sidenav-toggle name="results" as |toggleAction|}}
-                {{#paper-item onClick=(action resultSelected provider) class="md-3-line"}}
-                    <div class='collection-item'>
-                    <div class="md-list-item-text">
-                      <h3>{{provider.name}}</h3>
-                      <h4>Distance: {{provider.distance}} meters</h4>
-                    </div>
-                    </div>
-                {{/paper-item}}
-              {{/paper-sidenav-toggle}}
-            {{/each}}
-          {{/paper-list}}
-        {{/paper-content}}
-      {{/if}}
-    {{/if}}
-  {{/paper-content}}
-{{/paper-sidenav}}
-{{!-- {{/if}} --}}
-
-
-
-
-{{!--
-{{#paper-card as |card|}}
-  {{#card.title as |title|}}
-    {{#title.text as |text|}}
-      {{#text.headline}}Results{{/text.headline}}
-    {{/title.text}}
-  {{/card.title}}
+{{#paper-toolbar as |toolbar|}}
+  {{#paper-toolbar-tools}}Results{{/paper-toolbar-tools}}
+{{/paper-toolbar}}
+{{#paper-content padding=true}}
   {{#if isLoading}}
     Searching for Providers...
     {{paper-progress-circular}}
@@ -63,13 +11,9 @@
     </span>
 
     {{#if providers}}
-
-
-
-      {{#paper-content class="md-whiteframe-z1"}}
-        {{#paper-list}}
-          {{#each providers as |provider|}}
-            {{#paper-item class="md-3-line"}}
+      {{#paper-list}}
+        {{#each providers as |provider|}}
+            {{#paper-item onClick=(action resultSelected provider) class="md-3-line"}}
                 <div class='collection-item'>
                 <div class="md-list-item-text">
                   <h3>{{provider.name}}</h3>
@@ -77,9 +21,8 @@
                 </div>
                 </div>
             {{/paper-item}}
-          {{/each}}
-        {{/paper-list}}
-      {{/paper-content}}
+        {{/each}}
+      {{/paper-list}}
     {{/if}}
   {{/if}}
-{{/paper-card}} --}}
+{{/paper-content}}

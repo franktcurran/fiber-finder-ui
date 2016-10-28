@@ -1,13 +1,15 @@
-{{#paper-nav-container}}
-  {{#paper-sidenav-container class="inner-sidenav"}}
-    {{search-results openNav=model.openNav isLoading=model.isLoading resultSelected=(action 'resultSelected') message=model.message providers=model.providers}}
-    {{#paper-content flex=true}}
-      {{#paper-toolbar}}
-        <h2>Fiber Finder</h2>
-      {{/paper-toolbar}}
-      {{#paper-card title='Search' class="flex" md-colspan="2"}}
-        {{map-search addressSelected=(action 'addressSelected') geoJSON=model.geoJSON}}
-      {{/paper-card}}
-    {{/paper-content}}
-  {{/paper-sidenav-container}}
-{{/paper-nav-container}}
+{{#paper-toolbar}}
+<h2>Fiber Finder</h2>
+{{/paper-toolbar}}
+<div class="layout-row layout-xs-column">
+  <div class="layout-column flex-xs flex-gt-xs-70">
+    {{#paper-card title='Search' class="flex" md-colspan="2"}}
+      {{map-search addressSelected=(action 'addressSelected') geoJSON=model.geoJSON}}
+    {{/paper-card}}
+  </div>
+  <div class="layout-column flex-xs flex-gt-xs-30">
+    {{#paper-card title='Search' class="flex" md-colspan="2"}}
+      {{search-results openNav=model.openNav isLoading=model.isLoading resultSelected=(action 'resultSelected') message=model.message providers=model.providers}}
+    {{/paper-card}}
+  </div>
+</div>

@@ -30,11 +30,9 @@ export default Ember.Controller.extend({
       this.store.query('fiber-line', data).then((fiberLines) => {
         let fiberLine = fiberLines.get('firstObject');
         model.set('geoJSON', JSON.parse(fiberLine.get('line')));
-      })
-      // .catch((error) => {
-      //   model.set('message', `There was an issue searching: <br/> <strong>${error}</strong>`);
-      // })
-      ;
+      }).catch((error) => {
+        model.set('message', `There was an issue searching: <br/> <strong>${error}</strong>`);
+      });
     }
   }
 });
