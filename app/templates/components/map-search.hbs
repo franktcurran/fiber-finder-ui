@@ -5,8 +5,7 @@
   {{#if markerPosition}}
     {{marker-layer lat=markerPosition.lat lng=markerPosition.lng}}
   {{/if}}
-  {{#if geoJSON}}
-    {{geojson-layer geoJSON=geoJSON}}
-  {{/if}}
+  {{#each geoJSONs as |geoJSON|}}
+    {{geojson-layer geoJSON=geoJSON.geo color=geoJSON.color}}
+  {{/each}}
 {{/leaflet-map}}
-{{geoJSON}}

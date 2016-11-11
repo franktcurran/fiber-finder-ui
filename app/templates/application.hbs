@@ -1,10 +1,10 @@
 {{#paper-toolbar}}
-<h2>Fiber Finder</h2>
+  <h2>Fiber Finder</h2>
 {{/paper-toolbar}}
 <div class="layout-row layout-xs-column">
   <div class="layout-column flex-xs flex-gt-xs-70">
     {{#paper-card title='Search' class="flex" md-colspan="2"}}
-      {{map-search addressSelected=(action 'addressSelected') geoJSON=model.geoJSON}}
+      {{map-search addressSelected=(action 'addressSelected') isLoading=model.mapIsLoading geoJSONs=model.geoJSONs}}
     {{/paper-card}}
   </div>
   <div class="layout-column flex-xs flex-gt-xs-30">

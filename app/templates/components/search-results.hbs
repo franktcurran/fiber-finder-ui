@@ -13,14 +13,17 @@
     {{#if providers}}
       {{#paper-list}}
         {{#each providers as |provider|}}
-            {{#paper-item onClick=(action resultSelected provider) class="md-3-line"}}
-                <div class='collection-item'>
+          {{#paper-item onClick=(action resultSelected provider) class="md-3-line result-item" }}
+              {{!-- <img src={{provider.color}} class="md-avatar"> --}}
+              {{!-- <div class='collection-item'> --}}
+                <div class="legend-circle" style="background:{{provider.color}}"/>
                 <div class="md-list-item-text">
                   <h3>{{provider.name}}</h3>
                   <h4>Distance: {{provider.distance}} meters</h4>
                 </div>
-                </div>
-            {{/paper-item}}
+              {{!-- </div> --}}
+          {{/paper-item}}
+          {{paper-divider}}
         {{/each}}
       {{/paper-list}}
     {{/if}}

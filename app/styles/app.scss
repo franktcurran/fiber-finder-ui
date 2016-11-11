@@ -8,3 +8,16 @@
   margin-top: 7px;
   z-index: 2;
 }
+
+.legend-circle {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin: auto;
+  margin-right: 15px !important;
+}
+
+.result-item {
+  padding-left: 0px !important;
+  justify-content: flex-start !important;
+}
